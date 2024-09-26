@@ -35,7 +35,7 @@ Pre-downloading your files allows:
 
 ## ⚠️ Warning
 
-Kingsisle Entertainment has not made any announcement stating that this software is against their terms of service, however, I am no legal expert. Read the <a href="https://www.wizard101.com/patchClient/termsofuse">Wizard101 Terms of Service</a> before using this software.
+Kingsisle Entertainment has not made any announcement stating that this software is against their terms of service, however, I am no legal expert. Read the <a href="https://www.wizard101.com/patchClient/termsofuse">Wizard101 Terms of Service</a> before using this software. Read the <a href="https://github.com/naydevops/wizard/blob/main/LICENSE">project license</a> before using this too as I do not have any liability if you are sanctioned by Kingsisle.
 
 * You are prohibited from distributing, modifying, reverse-engineering, decompiling, or disassembling their software.
 * You are responsible for complying with applicable laws when downloading their software, particularly with regard to U.S. export control laws.
