@@ -1,3 +1,5 @@
+THIS SOFTWARE IS UNDER DEVELOPMENT AND SHOULD BE RELEASED BY THE BEGINNING OF OCTOBER.
+
 <a id="readme-top"></a>
 
 <div align="center">
