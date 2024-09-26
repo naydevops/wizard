@@ -46,7 +46,7 @@ Do NOT use this software to do anything against their TOS. Please find their <a 
 
 ## 🌍 Getting Started
 
-Simply download the .exe file from the 'Releases' section on the right and run it. The process may take up to an hour depending on your internet speed. The entire game assets are approximately 15GB as of September 2024.
+Simply download the .exe file from the 'Releases' section on the right and run it. When the application is executed, the download may take up to an hour depending on your internet speed. This application serves as a proxy to the patch server. The entire game assets are approximately 15GB as of September 2024.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
