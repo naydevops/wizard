@@ -49,7 +49,7 @@ Do NOT use this software to do anything against their TOS. Please find their <a 
 
 ## 🌍 Getting Started
 
-Simply download the .exe file from the 'Releases' section on the right and run it. When the application is executed, the download may take up to an hour depending on your internet speed. This application serves as a proxy to the patch server. The entire game assets are approximately 15GB as of September 2024.
+Simply download the .exe file from the 'Releases' section on the right and run it. **It's in the 'publish.zip' folder.** When the application is executed, the download may take up to an hour depending on your internet speed. This application serves as a proxy to the patch server. The entire game assets are approximately 15GB as of September 2024.
 
 Ensure you are running 'Wizard.ConsoleInterface.exe', it will delete all previously downloaded files and download everything. This application only supports Windows for now but MacOS support will eventually come. Ensure you've downloaded .NET 8 or this application won't work. https://dotnet.microsoft.com/en-us/download/dotnet/8.0
 
