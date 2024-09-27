@@ -61,6 +61,8 @@ As you know, the more you play Wizard101, the slower the game launcher patching/
 
 If you're a little skeptical of downloading a random .exe online, I don't blame you. To prevent this, you're more than welcome to compile this yourself via Visual Studio, Rider or any other IDE. Open up the Microsoft .sln file, ensure you have .NET 8 installed and proceed to compile under the included 'Release' configuration. This will create your compiled .exe file.
 
+You can also run the command `dotnet publish -r win-x64` in the root directory where `Wizard.sln` is kept in a terminal. This will output the .exe in `./src/Wizard.ConsoleInterface/bin/Release/net8.0/win-x64/publish/Wizard.ConsoleInterface.exe`
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Contributing
