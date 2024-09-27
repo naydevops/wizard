@@ -1,92 +1,111 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
+using Serilog;
 using Wizard.Application;
 using Wizard.Application.DirectoryManipulator;
 using Wizard.Application.InstallFinder;
 
-if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Debug()
+    .WriteTo.File("logs/app.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+
+try
 {
-    Console.WriteLine("The author of this software is lazy and hasn't allowed systems other than Windows yet. :(");
-    Environment.Exit(1);
-}
+    if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+    {
+        Log.Error("Unable to start software. Invalid platform.");
+        Environment.Exit(1);
+    }
 
-Console.WriteLine("wizard - the little helper");
+    Console.WriteLine("wizard - the little helper");
 
-var applicationDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!;
-var tempPatchFileDirectory = Path.Combine(applicationDirectory, "TempPatchFiles");
+    var applicationDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!;
+    var tempPatchFileDirectory = Path.Combine(applicationDirectory, "TempPatchFiles");
 
-var installFinder = GetInstallFinder();
-var installPath = installFinder.GetInstallationPath();
+    var installFinder = GetInstallFinder();
+    var installPath = installFinder.GetInstallationPath();
 
-if (installPath == null)
-{
-    Console.WriteLine("The application couldn't find where you installed Wizard101. Exiting.");
-    Environment.Exit(1);
-}
+    if (installPath == null)
+    {
+        Log.Error("Unable to find Wizard101 installation.");
+        Environment.Exit(1);
+    }
 
-var directoryManipulator = GetDirectoryManipulator(installPath);
-var wizard101Version = await directoryManipulator.GetWizard101Version();
+    var directoryManipulator = GetDirectoryManipulator(installPath);
+    var wizard101Version = await directoryManipulator.GetWizard101Version();
 
-if (wizard101Version == null)
-{
-    Console.WriteLine("Couldn't extract your Wizard101 version. Exiting.");
-    Environment.Exit(1);
-}
+    if (wizard101Version == null)
+    {
+        Log.Error("Unable to extract Wizard101 version.");
+        Environment.Exit(1);
+    }
 
-Console.WriteLine($"Found Wizard101 installation at location {installPath}");
-Console.WriteLine($"Wizard101 data version is: {wizard101Version}");
+    Console.WriteLine($"Found Wizard101 installation at location {installPath}");
+    Console.WriteLine($"Wizard101 data version is: {wizard101Version}");
 
-directoryManipulator.DestroyGameData();
+    directoryManipulator.DestroyGameData();
 
-Console.WriteLine("Deleted previously installed GameData and ObjectCache for a fresh installation.");
-Console.WriteLine("Downloading LatestFileList.bin to discover all Wizard101 files.");
+    Console.WriteLine("Deleted previously installed GameData and ObjectCache for a fresh installation.");
+    Console.WriteLine("Downloading LatestFileList.bin to discover all Wizard101 files.");
 
-var patchClientDownloader = new PatchClientDownloader(wizard101Version);
-await patchClientDownloader.DownloadLatestFileListAsync(tempPatchFileDirectory);
+    var patchClientDownloader = new PatchClientDownloader(wizard101Version);
+    await patchClientDownloader.DownloadLatestFileListAsync(tempPatchFileDirectory);
 
-Console.WriteLine("Downloaded LatestFileList.bin successfully!");
+    Console.WriteLine("Downloaded LatestFileList.bin successfully!");
 
-var latestFileListExtractor = new LatestFileListExtractor(Path.Combine(tempPatchFileDirectory, "LatestFileList.bin"));
-var filesDiscovered = await latestFileListExtractor.ExtractStringsAsync();
+    var latestFileListExtractor =
+        new LatestFileListExtractor(Path.Combine(tempPatchFileDirectory, "LatestFileList.bin"));
+    var filesDiscovered = await latestFileListExtractor.ExtractStringsAsync();
 
-Console.WriteLine($"Discovered {filesDiscovered.Count} downloadable objects from the LatestFileList.bin file.");
+    Console.WriteLine($"Discovered {filesDiscovered.Count} downloadable objects from the LatestFileList.bin file.");
 
-var additionalFilesParser = new AdditionalFilesParser(Path.Combine(applicationDirectory, "AdditionalFiles.txt"));
-var additionalFiles = await additionalFilesParser.GetAdditionalFilesAsync();
+    var additionalFilesParser = new AdditionalFilesParser(Path.Combine(applicationDirectory, "AdditionalFiles.txt"));
+    var additionalFiles = await additionalFilesParser.GetAdditionalFilesAsync();
 
-Console.WriteLine($"Discovered {additionalFiles.Count} downloadable objects from the AdditionalFiles.txt file.");
+    Console.WriteLine($"Discovered {additionalFiles.Count} downloadable objects from the AdditionalFiles.txt file.");
 
-var allFiles = new List<string>();
-allFiles.AddRange(filesDiscovered);
-allFiles.AddRange(additionalFiles);
+    var allFiles = new List<string>();
+    allFiles.AddRange(filesDiscovered);
+    allFiles.AddRange(additionalFiles);
 
-allFiles = allFiles.Distinct().ToList();
-allFiles.Sort();
-
-Console.WriteLine($"Discovered a total of {allFiles.Count} files to download after merging and removing duplicates.");
-
-await directoryManipulator.OverrideLocalPackagesListAsync(allFiles);
-
-Console.WriteLine(
-    "Deleted previously installed LocalPackagesList for a fresh installation and override with complete list.");
-
-var currentFile = 1;
-foreach (var file in allFiles)
-{
-    Console.WriteLine($"[{currentFile:D4}/{allFiles.Count:D4}] BEGIN {file}");
-
-    var fileSize = await patchClientDownloader.GetFileSizeAsync(file);
+    allFiles = allFiles.Distinct().ToList();
+    allFiles.Sort();
 
     Console.WriteLine(
-        $"[{currentFile:D4}/{allFiles.Count:D4}] BEGIN {file} | File size: {fileSize / (1024.0 * 1024.0):F2}MB");
+        $"Discovered a total of {allFiles.Count} files to download after merging and removing duplicates.");
 
-    await patchClientDownloader.DownloadFileAsync(file, Path.Combine(installPath, "Data", "GameData"));
+    await directoryManipulator.OverrideLocalPackagesListAsync(allFiles);
 
-    currentFile++;
+    Console.WriteLine(
+        "Deleted previously installed LocalPackagesList for a fresh installation and override with complete list.");
+
+    var currentFile = 1;
+    foreach (var file in allFiles)
+    {
+        Console.WriteLine($"[{currentFile:D4}/{allFiles.Count:D4}] BEGIN {file}");
+
+        var fileSize = await patchClientDownloader.GetFileSizeAsync(file);
+
+        Console.WriteLine(
+            $"[{currentFile:D4}/{allFiles.Count:D4}] BEGIN {file} | File size: {fileSize / (1024.0 * 1024.0):F2}MB");
+
+        await patchClientDownloader.DownloadFileAsync(file, Path.Combine(installPath, "Data", "GameData"));
+
+        currentFile++;
+    }
+
+    Console.WriteLine(
+        "The files were successfully downloaded to the Wizard101 client. Please start up your game and enjoy!~");
 }
-
-Console.WriteLine(
-    "The files were successfully downloaded to the Wizard101 client. Please start up your game and enjoy!~");
+catch (Exception ex)
+{
+    Log.Error(ex, "Something went wrong.");
+}
+finally
+{
+    await Log.CloseAndFlushAsync();
+}
 
 return;
 

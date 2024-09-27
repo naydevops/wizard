@@ -1,4 +1,6 @@
-﻿namespace Wizard.Application;
+﻿using Serilog;
+
+namespace Wizard.Application;
 
 public sealed class PatchClientDownloader
 {
@@ -16,6 +18,8 @@ public sealed class PatchClientDownloader
     {
         Directory.CreateDirectory(filePath);
 
+        Log.Information("PCD- Downloading LatestFileList {FilePath}", filePath);
+
         var response =
             await _httpClient.GetAsync("Windows/LatestFileList.bin", HttpCompletionOption.ResponseHeadersRead);
 
@@ -31,6 +35,8 @@ public sealed class PatchClientDownloader
 
     public async Task<long> GetFileSizeAsync(string fileName)
     {
+        Log.Information("PCD- Getting filesize for {FilePath}", fileName);
+
         using var response =
             await _httpClient.SendAsync(
                 new HttpRequestMessage(HttpMethod.Head, $"LatestBuild/Data/GameData/{fileName}"));
@@ -43,6 +49,8 @@ public sealed class PatchClientDownloader
     public async Task DownloadFileAsync(string fileName, string filePath)
     {
         Directory.CreateDirectory(Path.Combine(filePath, Path.GetDirectoryName(fileName)!));
+
+        Log.Information("PCD- Downloading {FileName} to {FilePath}", fileName, filePath);
 
         var response =
             await _httpClient.GetAsync($"LatestBuild/Data/GameData/{fileName}",

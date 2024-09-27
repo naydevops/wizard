@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using Serilog;
 
 namespace Wizard.Application;
 
@@ -11,6 +12,8 @@ public sealed class LatestFileListExtractor(string fileLocation)
         var baseStrings = await ExtractBaseStringsAsync();
         baseStrings = baseStrings.Select(se => se.Replace("Data/GameData/", string.Empty)).ToList();
 
+        Log.Information("LFLE- Extracted {StringCount}.", baseStrings.Count);
+
         return baseStrings;
     }
 
@@ -21,6 +24,8 @@ public sealed class LatestFileListExtractor(string fileLocation)
         var currentString = new StringBuilder();
 
         await using var fs = new FileStream(fileLocation, FileMode.Open, FileAccess.Read, FileShare.Read, 4096, true);
+
+        Log.Information("LFLE- Executing FileStream");
 
         while (await fs.ReadAsync(buffer.AsMemory(0, 1)) > 0)
         {
