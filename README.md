@@ -57,6 +57,12 @@ As you know, the more you play Wizard101, the slower the game launcher patching/
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## ⚙️ Compiling (Advanced)
+
+If you're a little skeptical of downloading a random .exe online, I don't blame you. To prevent this, you're more than welcome to compile this yourself via Visual Studio, Rider or any other IDE. Open up the Microsoft .sln file, ensure you have .NET 8 installed and proceed to compile under the included 'Release' configuration. This will create your compiled .exe file.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Contributing
 
 Any contributions you make are **greatly appreciated**. If you have a suggestion that would make wizard better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
