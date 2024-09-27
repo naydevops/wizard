@@ -8,12 +8,11 @@
   [![Issues][issues-shield]][issues-url]
   [![MIT License][license-shield]][license-url]
 
-
-  <h3 align="center">🪄 wizard - the little helper</h3>
-
   <div align="center">
     <img src="https://raw.githubusercontent.com/naydevops/wizard/refs/heads/main/.github/wizard.png" alt="Logo" width="640" height="320">
   </div>
+
+  <h3 align="center">🪄 wizard - the little helper</h3>
 
   <p align="center">
     A little utility to pre-download all Wizard101 files.
