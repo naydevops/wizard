@@ -53,6 +53,8 @@ Simply download the .exe file from the 'Releases' section on the right and run i
 
 Ensure you are running 'Wizard.ConsoleInterface.exe', it will delete all previously downloaded files and download everything. This application only supports Windows for now but MacOS support will eventually come. Ensure you've downloaded .NET 8 or this application won't work. https://dotnet.microsoft.com/en-us/download/dotnet/8.0
 
+As you know, the more you play Wizard101, the slower the game launcher patching/scanning process becomes. **Once you've downloaded the entire game, this can take up to two minutes to complete.** The community has made guides on how to skip the launching process, but is recommended to run this application once in a while OR use the official patcher to play Wizard101.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Contributing
