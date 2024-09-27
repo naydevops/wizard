@@ -1,5 +1,3 @@
-<h1>THIS SOFTWARE IS UNDER DEVELOPMENT AND SHOULD BE RELEASED BY THE BEGINNING OF OCTOBER.</h1>
-
 <a id="readme-top"></a>
 
 <div align="center">
@@ -31,6 +29,8 @@ Pre-downloading your files allows:
 * **No Data Limits:** Avoid internet usage spikes or data caps from streaming.
 * **Faster Load Times:** Local files mean quicker loading and smoother transitions.
 
+This project is early stages, the code is a prototype, terrible, no exception checking is made and only supports Windows for now. I also need to add the package detector to stop the client thinking the files haven't already been downloaded properly. The application assumes your internet won't go down, and the patch server is always up, or you'll have to start again for now... This will be fixed in future versions. Sorry!
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## ⚠️ Warning
@@ -47,6 +47,10 @@ Do NOT use this software to do anything against their TOS. Please find their <a 
 ## 🌍 Getting Started
 
 Simply download the .exe file from the 'Releases' section on the right and run it. When the application is executed, the download may take up to an hour depending on your internet speed. This application serves as a proxy to the patch server. The entire game assets are approximately 15GB as of September 2024.
+
+Ensure you are running 'Wizard.ConsoleInterface.exe', it will delete all previously downloaded files and download everything. It is normal for the game to display the downloading icon when joining for the first time, but it is simply the client looking if you have the files locally.
+
+This application only supports Windows for now but MacOS support will eventually come.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
