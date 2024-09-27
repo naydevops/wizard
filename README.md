@@ -11,6 +11,10 @@
 
   <h3 align="center">🪄 wizard - the little helper</h3>
 
+  <div align="center">
+    <img src=".github/wizard" alt="Logo" width="640" height="320">
+  </div>
+
   <p align="center">
     A little utility to pre-download all Wizard101 files.
     <br />
