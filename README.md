@@ -29,6 +29,8 @@ Pre-downloading your files allows:
 * **No Data Limits:** Avoid internet usage spikes or data caps from streaming.
 * **Faster Load Times:** Local files mean quicker loading and smoother transitions.
 
+This project is early stages, the code is a prototype, terrible, no exception checking is made and only supports Windows for now. I also need to add the package detector to stop the client thinking the files haven't already been downloaded properly. The application assumes your internet won't go down, and the patch server is always up, or you'll have to start again for now... This will be fixed in future versions. Sorry!
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## ⚠️ Warning
