@@ -21,7 +21,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\Wizard.Application\Wizard.Application.csproj" />
+        <ProjectReference Include="..\..\src\Wizard.Application\Wizard.Application.csproj"/>
     </ItemGroup>
 
 </Project>

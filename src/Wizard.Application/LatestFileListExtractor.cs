@@ -2,15 +2,9 @@
 
 namespace Wizard.Application;
 
-public sealed class LatestFileListExtractor
+public sealed class LatestFileListExtractor(string fileLocation)
 {
-    private readonly string _fileLocation;
     private const string SearchString = "Data/GameData/";
-    
-    public LatestFileListExtractor(string fileLocation)
-    {
-        _fileLocation = fileLocation;
-    }
 
     public async Task<List<string>> ExtractStringsAsync()
     {
@@ -26,31 +20,25 @@ public sealed class LatestFileListExtractor
         var buffer = new byte[1];
         var currentString = new StringBuilder();
 
-        await using var fs = new FileStream(_fileLocation, FileMode.Open, FileAccess.Read, FileShare.Read, 4096, true);
+        await using var fs = new FileStream(fileLocation, FileMode.Open, FileAccess.Read, FileShare.Read, 4096, true);
 
         while (await fs.ReadAsync(buffer.AsMemory(0, 1)) > 0)
         {
             int b = buffer[0];
 
-            if (b is >= 32 and <= 126) 
+            if (b is >= 32 and <= 126)
             {
                 currentString.Append((char)b);
             }
             else
             {
-                if (currentString.ToString().Contains(SearchString))
-                {
-                    extractedStrings.Add(currentString.ToString());
-                }
+                if (currentString.ToString().Contains(SearchString)) extractedStrings.Add(currentString.ToString());
 
                 currentString.Clear();
             }
         }
 
-        if (currentString.ToString().Contains(SearchString))
-        {
-            extractedStrings.Add(currentString.ToString());
-        }
+        if (currentString.ToString().Contains(SearchString)) extractedStrings.Add(currentString.ToString());
 
         return extractedStrings;
     }

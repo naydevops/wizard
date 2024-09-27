@@ -7,9 +7,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <None Update="AdditionalFiles.txt">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
+        <None Update="AdditionalFiles.txt">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
     </ItemGroup>
 
 </Project>

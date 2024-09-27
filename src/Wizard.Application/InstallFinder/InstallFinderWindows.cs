@@ -13,18 +13,17 @@ public sealed class InstallFinderWindows : IInstallFinder
 
     public string? GetInstallationPath()
     {
-        if (Directory.Exists(DefaultInstallationDirectory) && File.Exists(Path.Combine(DefaultInstallationDirectory, Wizard101ExecutableName)))
-        {
+        if (Directory.Exists(DefaultInstallationDirectory) &&
+            File.Exists(Path.Combine(DefaultInstallationDirectory, Wizard101ExecutableName)))
             return DefaultInstallationDirectory;
-        }
-        
+
         return FindRegistryLocation();
     }
-    
+
     private static string? FindRegistryLocation()
     {
         var uninstallRegistryKey = Registry.CurrentUser.OpenSubKey(WindowsUninstallRegistryKey);
-        
+
         return uninstallRegistryKey is null
             ? null
             : (from uninstallKey in uninstallRegistryKey.GetSubKeyNames()

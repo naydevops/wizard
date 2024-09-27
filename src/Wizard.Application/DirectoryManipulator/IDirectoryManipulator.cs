@@ -4,5 +4,5 @@ public interface IDirectoryManipulator
 {
     Task<string?> GetWizard101Version();
     void DestroyGameData();
-    void DestroyLocalPackagesList();
+    Task OverrideLocalPackagesListAsync(List<string> packages);
 }
