@@ -45,6 +45,9 @@ Kingsisle Entertainment has not made any announcement stating that this software
 * If downloading software from the Wizard101 site, you warrant that you are not located in any country subject to U.S. embargoes and that you comply with any requisite government authorizations.
 
 Do NOT use this software to do anything against their TOS. Please find their <a href="https://www.wizard101.com/patchClient/termsofuse">Terms of Service here</a>. This software may be requested to be taken down at any time by Kingsisle Entertainment in which I will happily comply if needed.
+
+This is an unofficial tool that is not endorsed by KingsIsle Entertainment. Wizard101 is a trademark of KingsIsle Entertainment.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🌍 Getting Started
