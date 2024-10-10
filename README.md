@@ -51,11 +51,9 @@ This software may be requested to be taken down at any time by Kingsisle Enterta
 
 ## 🌍 Getting Started
 
-Simply download the .exe file from the 'Releases' section on the right and run it. **It's in the 'publish.zip' folder.** When the application is executed, the download may take up to an hour depending on your internet speed. This application serves as a proxy to the patch server. The entire game assets are approximately 15GB as of September 2024.
+Download the publish folder from the release section and run it. Wizard101 is approximately 15GB as of September 2024, it may take up to 2 hours depending on your internet connection.
 
-Ensure you are running 'Wizard.ConsoleInterface.exe', it will delete all previously downloaded files and download everything. This application only supports Windows for now but MacOS support will eventually come. Ensure you've downloaded .NET 8 or this application won't work. https://dotnet.microsoft.com/en-us/download/dotnet/8.0
-
-As you know, the more you play Wizard101, the slower the game launcher patching/scanning process becomes. **Once you've downloaded the entire game, this can take up to two minutes to complete.** The community has made guides on how to skip the launching process, but is recommended to run this application once in a while OR use the official patcher to play Wizard101.
+Run the `.exe` file. The tool will delete all previously downloaded files and download everything fresh. This tool uses Microsoft .NET 8. If you are running into errors, download .NET 8 here: https://dotnet.microsoft.com/en-us/download/dotnet/8.0
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
