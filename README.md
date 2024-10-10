@@ -51,9 +51,11 @@ This software may be requested to be taken down at any time by Kingsisle Enterta
 
 ## 🌍 Getting Started
 
-Download the publish folder from the release section and run it. Wizard101 is approximately 15GB as of September 2024, it may take up to 2 hours depending on your internet connection.
+Download the publish folder from the GitHub releases. Wizard101 is approximately 15GB as of September 2024, it may take up to 2 hours depending on your internet connection.
 
-Run the `.exe` file. The tool will delete all previously downloaded files and download everything fresh. This tool uses Microsoft .NET 8. If you are running into errors, download .NET 8 here: https://dotnet.microsoft.com/en-us/download/dotnet/8.0
+Run the `.exe` file to launch the tool. The tool will delete all previously downloaded files and download everything fresh.
+
+This tool uses Microsoft .NET 8. If you are running into errors, download .NET 8 here: https://dotnet.microsoft.com/en-us/download/dotnet/8.0
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
