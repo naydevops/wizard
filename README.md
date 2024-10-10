@@ -40,7 +40,7 @@ This project is early stages, the code is a prototype, terrible, no exception ch
 
 Read the <a href="https://www.wizard101.com/patchClient/termsofuse">Wizard101 Terms of Service</a> and <a href="https://github.com/naydevops/wizard/blob/main/LICENSE">project license</a> before using this software. I do not have any warranty or liability if you are sanctioned by Kingsisle Entertainment. Their terms of service state:
 
-* You may not copy, modify, create derivative works of, publicly display or perform, republish, store, transmit or distribute any of the material on this site.
+* You may not copy, modify, create derivative works of, publicly display or perform, republish, store, transmit or distribute any of the material on their site.
 * You are prohibited from distributing, modifying, reverse-engineering, decompiling, or disassembling their software.
 * You are responsible for complying with applicable laws when downloading their software, particularly with regard to U.S. export control laws.
 * If downloading software from the Wizard101 site, you warrant that you are not located in any country subject to U.S. embargoes and that you comply with any requisite government authorizations.
