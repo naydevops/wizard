@@ -38,13 +38,14 @@ This project is early stages, the code is a prototype, terrible, no exception ch
 
 ## ⚠️ Warning
 
-Kingsisle Entertainment has not made any announcement stating that this software is against their terms of service, however, I am no legal expert. Read the <a href="https://www.wizard101.com/patchClient/termsofuse">Wizard101 Terms of Service</a> before using this software. Read the <a href="https://github.com/naydevops/wizard/blob/main/LICENSE">project license</a> before using this too as I do not have any warranty or liability if you are sanctioned by Kingsisle Entertainment.
+Read the <a href="https://www.wizard101.com/patchClient/termsofuse">Wizard101 Terms of Service</a> and <a href="https://github.com/naydevops/wizard/blob/main/LICENSE">project license</a> before using this software. I do not have any warranty or liability if you are sanctioned by Kingsisle Entertainment. Their terms of service state:
 
+* You may not copy, modify, create derivative works of, publicly display or perform, republish, store, transmit or distribute any of the material on this site.
 * You are prohibited from distributing, modifying, reverse-engineering, decompiling, or disassembling their software.
 * You are responsible for complying with applicable laws when downloading their software, particularly with regard to U.S. export control laws.
 * If downloading software from the Wizard101 site, you warrant that you are not located in any country subject to U.S. embargoes and that you comply with any requisite government authorizations.
 
-Do NOT use this software to do anything against their TOS. Please find their <a href="https://www.wizard101.com/patchClient/termsofuse">Terms of Service here</a>. This software may be requested to be taken down at any time by Kingsisle Entertainment in which I will happily comply if needed.
+Please find their <a href="https://www.wizard101.com/patchClient/termsofuse">Terms of Service here</a>. This software may be requested to be taken down at any time by Kingsisle Entertainment in which I will happily comply if needed.
 
 This is an unofficial tool that is not endorsed by KingsIsle Entertainment. Wizard101 is a trademark of KingsIsle Entertainment.
 
